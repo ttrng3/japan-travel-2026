@@ -101,6 +101,52 @@
   .foot{margin:40px 0 70px;padding-top:18px;border-top:1px solid var(--line);font-size:.82rem;color:var(--muted);}
   .anchor{scroll-margin-top:64px;}
 
+  /* ---- infographics ---- */
+  figure.viz{margin:0 0 16px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;}
+  figure.viz figcaption{font-size:.82rem;color:var(--muted);margin-top:10px;line-height:1.5;}
+  .viz svg{max-width:100%;height:auto;display:block;}
+  .viz text{font-family:var(--sans);}
+  /* journey map */
+  .jmap{width:100%;height:auto;}
+  .jmap .cityname{font-weight:700;font-size:15px;fill:var(--ink);}
+  .jmap .nights{font-weight:700;fill:#fff;font-size:22px;}
+  .jmap .nlbl{fill:#fff;font-size:9px;opacity:.92;}
+  .jmap .seglbl{fill:var(--muted);font-size:11px;}
+  .jmap .dates{fill:var(--muted);font-size:10px;}
+  .jmap .ap{fill:var(--indigo);font-size:12px;font-weight:700;}
+  /* timeline ribbon */
+  .ribbon{display:grid;grid-template-columns:repeat(10,1fr);gap:6px;}
+  @media(max-width:820px){.ribbon{grid-template-columns:repeat(5,1fr);}}
+  @media(max-width:460px){.ribbon{grid-template-columns:repeat(2,1fr);}}
+  .rcell{border:1px solid var(--line);border-radius:9px;overflow:hidden;background:#fff;text-align:center;}
+  .rcell .rtop{height:6px;}
+  .rcell .rd{font-family:var(--serif);font-weight:700;font-size:.95rem;margin-top:6px;}
+  .rcell .rdate{font-size:.66rem;color:var(--muted);}
+  .rcell .ric{font-size:1.15rem;margin:4px 0 1px;}
+  .rcell .rh{font-size:.7rem;color:var(--ink);padding:0 5px 9px;line-height:1.3;}
+  .rlegend{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px;font-size:.82rem;color:var(--muted);}
+  .rlegend .d{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:middle;}
+  /* budget donut */
+  .budgrid{display:grid;grid-template-columns:220px 1fr;gap:22px;align-items:center;}
+  @media(max-width:600px){.budgrid{grid-template-columns:1fr;justify-items:center;}}
+  .dseg{transition:opacity .15s;}
+  .viz:hover .dseg{opacity:.5;}
+  .dseg:hover{opacity:1;}
+  .dcx-n{font-family:var(--serif);font-weight:800;font-size:30px;fill:var(--ink);}
+  .dcx-l{font-size:11px;fill:var(--muted);}
+  .dcx-s{font-size:10px;fill:var(--amber);font-weight:600;}
+  .lg{display:flex;flex-direction:column;gap:9px;width:100%;}
+  .lgrow{display:grid;grid-template-columns:16px 1fr auto;gap:10px;align-items:center;font-size:.9rem;}
+  .lgrow .sw{width:14px;height:14px;border-radius:4px;}
+  .lgrow .ln{color:var(--ink);}
+  .lgrow .lv{color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap;}
+  /* weather strip */
+  .wxbar{display:flex;height:46px;border-radius:10px;overflow:hidden;border:1px solid var(--line);}
+  .wxbar .z{flex:1;display:flex;align-items:center;justify-content:center;text-align:center;font-size:.76rem;font-weight:600;color:#1B2440;padding:0 6px;}
+  .wxbar .cold{background:#cfe0f5;} .wxbar .mild{background:#e9eddb;} .wxbar .warm{background:#f6e3c6;}
+  .wxpack{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
+  .wxchip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:20px;padding:5px 12px;font-size:.82rem;background:#fff;}
+
   /* emergency card */
   .ecard{border:2px solid var(--ink);border-radius:12px;overflow:hidden;background:#fff;margin-bottom:14px;}
   .ecard .eh{background:var(--red);color:#fff;padding:12px 18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;}
@@ -189,6 +235,59 @@
 <!-- TÓM TẮT -->
 <section id="tomtat" class="anchor">
   <div class="sec-head"><span class="sec-num">02</span><h2>Tóm tắt chuyến đi</h2></div>
+
+  <figure class="viz">
+    <svg class="jmap" viewBox="0 0 900 200" role="img" aria-label="Hành trình: Hà Nội → Tokyo 5 đêm → Kyoto 1 đêm → Osaka 3 đêm → Hà Nội">
+      <line x1="60" y1="100" x2="840" y2="100" stroke="#DCE1EA" stroke-width="3"/>
+      <path d="M60,100 Q135,45 210,100" fill="none" stroke="#26346B" stroke-width="2" stroke-dasharray="4 4"/>
+      <path d="M722,100 Q781,45 840,100" fill="none" stroke="#26346B" stroke-width="2" stroke-dasharray="4 4"/>
+      <line x1="290" y1="100" x2="476" y2="100" stroke="#59617A" stroke-width="3"/>
+      <line x1="524" y1="100" x2="658" y2="100" stroke="#59617A" stroke-width="3"/>
+      <circle cx="60" cy="100" r="7" fill="#26346B"/>
+      <text class="ap" x="60" y="130" text-anchor="middle">✈ HAN</text>
+      <text class="dates" x="60" y="146" text-anchor="middle">VN384 · 30/11</text>
+      <circle cx="840" cy="100" r="7" fill="#26346B"/>
+      <text class="ap" x="840" y="130" text-anchor="middle">HAN ✈</text>
+      <text class="dates" x="840" y="146" text-anchor="middle">VN339 · 09/12</text>
+      <text class="seglbl" x="135" y="58" text-anchor="middle">✈ bay ~6h</text>
+      <text class="seglbl" x="383" y="86" text-anchor="middle">🚄 Shinkansen · 2h15</text>
+      <text class="seglbl" x="591" y="86" text-anchor="middle">🚆 JR · ~1h</text>
+      <text class="seglbl" x="781" y="58" text-anchor="middle">✈ bay ~5h30</text>
+      <text class="cityname" x="250" y="42" text-anchor="middle">Tokyo</text>
+      <circle cx="250" cy="100" r="40" fill="#2a78d6"/>
+      <text class="nights" x="250" y="103" text-anchor="middle">5</text>
+      <text class="nlbl" x="250" y="118" text-anchor="middle">đêm</text>
+      <text class="dates" x="250" y="176" text-anchor="middle">30/11 – 05/12 · Ikebukuro</text>
+      <text class="cityname" x="500" y="60" text-anchor="middle">Kyoto</text>
+      <circle cx="500" cy="100" r="24" fill="#eb6834"/>
+      <text class="nights" x="500" y="102" text-anchor="middle" style="font-size:17px">1</text>
+      <text class="nlbl" x="500" y="115" text-anchor="middle">đêm</text>
+      <text class="dates" x="500" y="176" text-anchor="middle">05 – 06/12</text>
+      <text class="cityname" x="690" y="50" text-anchor="middle">Osaka</text>
+      <circle cx="690" cy="100" r="32" fill="#1baf7a"/>
+      <text class="nights" x="690" y="104" text-anchor="middle">3</text>
+      <text class="nlbl" x="690" y="119" text-anchor="middle">đêm</text>
+      <text class="dates" x="690" y="176" text-anchor="middle">06 – 09/12 · Nishi-Nagahori</text>
+    </svg>
+    <figcaption><b>Hành trình open-jaw:</b> vào Tokyo (Haneda), ra Osaka (Kansai) — không quay đầu, đỡ tốn 1 chặng &amp; nửa ngày di chuyển. Kích thước vòng tròn theo số đêm ở mỗi thành phố.</figcaption>
+  </figure>
+
+  <figure class="viz">
+    <div class="wxbar">
+      <div class="z cold">Đêm 2–4°C</div>
+      <div class="z mild">Sáng/chiều mát · khô</div>
+      <div class="z warm">Ngày 10–12°C ☀️</div>
+    </div>
+    <div class="wxpack">
+      <span class="wxchip">🧥 Áo khoác ấm + lớp lót</span>
+      <span class="wxchip">🧣 Khăn</span>
+      <span class="wxchip">🧤 Găng tay (buổi tối)</span>
+      <span class="wxchip">👟 Giày đi bộ êm</span>
+      <span class="wxchip">💧 Dưỡng ẩm (hanh khô)</span>
+    </div>
+    <figcaption>Đầu tháng 12: khô, nắng, tầm nhìn tốt (dễ thấy Phú Sĩ). Trong nhà &amp; trên tàu bật sưởi rất nóng → mặc <b>nhiều lớp</b> để cởi bớt.</figcaption>
+  </figure>
+
   <div class="grid2">
     <div class="card">
       <h3 class="blk">Khung chuyến</h3>
@@ -287,6 +386,27 @@
 <section id="lichtrinh" class="anchor">
   <div class="sec-head"><span class="sec-num">05</span><h2>Lịch trình từng ngày</h2></div>
   <p class="small">Khung giờ gợi ý, xê dịch thoải mái. Tháng 12 trời tối sớm (~16:40) → xếp điểm ngoài trời buổi sáng/chiều, đèn &amp; ăn uống buổi tối. Phương án mưa ở cuối mục (tháng 12 chỉ ~4–6 ngày mưa cả tháng).</p>
+
+  <figure class="viz">
+    <div class="ribbon">
+      <div class="rcell"><div class="rtop" style="background:#2a78d6"></div><div class="rd">N1</div><div class="rdate">30/11</div><div class="ric">✈️</div><div class="rh">Đến Tokyo</div></div>
+      <div class="rcell"><div class="rtop" style="background:#2a78d6"></div><div class="rd">N2</div><div class="rdate">01/12</div><div class="ric">⛩️</div><div class="rh">Asakusa · Ueno</div></div>
+      <div class="rcell"><div class="rtop" style="background:#2a78d6"></div><div class="rd">N3</div><div class="rdate">02/12</div><div class="ric">🏙️</div><div class="rh">Shibuya · Shinjuku</div></div>
+      <div class="rcell"><div class="rtop" style="background:#2a78d6"></div><div class="rd">N4</div><div class="rdate">03/12</div><div class="ric">🌊</div><div class="rh">Kamakura</div></div>
+      <div class="rcell"><div class="rtop" style="background:#2a78d6"></div><div class="rd">N5</div><div class="rdate">04/12</div><div class="ric">🐟</div><div class="rh">Tsukiji · teamLab</div></div>
+      <div class="rcell"><div class="rtop" style="background:#eb6834"></div><div class="rd">N6</div><div class="rdate">05/12</div><div class="ric">🦊</div><div class="rh">Fushimi · Gion</div></div>
+      <div class="rcell"><div class="rtop" style="background:#1baf7a"></div><div class="rd">N7</div><div class="rdate">06/12</div><div class="ric">🎍</div><div class="rh">Arashiyama → Osaka</div></div>
+      <div class="rcell"><div class="rtop" style="background:#1baf7a"></div><div class="rd">N8</div><div class="rdate">07/12</div><div class="ric">🏯</div><div class="rh">Lâu đài · Dotonbori</div></div>
+      <div class="rcell"><div class="rtop" style="background:#1baf7a"></div><div class="rd">N9</div><div class="rdate">08/12</div><div class="ric">🦌</div><div class="rh">Nara / USJ</div></div>
+      <div class="rcell"><div class="rtop" style="background:#1baf7a"></div><div class="rd">N10</div><div class="rdate">09/12</div><div class="ric">✈️</div><div class="rh">Về nhà</div></div>
+    </div>
+    <div class="rlegend">
+      <span><span class="d" style="background:#2a78d6"></span>Tokyo · 5 đêm</span>
+      <span><span class="d" style="background:#eb6834"></span>Kyoto · 1 đêm</span>
+      <span><span class="d" style="background:#1baf7a"></span>Osaka · 3 đêm</span>
+    </div>
+    <figcaption>Toàn cảnh 10 ngày — màu theo thành phố ngủ đêm đó. Chi tiết từng khung giờ ở bên dưới.</figcaption>
+  </figure>
 
   <div class="day">
     <div class="dh"><span class="dl">Ngày 1 · Bay + đến Tokyo</span><span class="dd">CN 30/11</span></div>
@@ -545,6 +665,34 @@
 <!-- NGÂN SÁCH -->
 <section id="ngansach" class="anchor">
   <div class="sec-head"><span class="sec-num">08</span><h2>Bảng ngân sách (VNĐ · nhóm 4)</h2></div>
+
+  <figure class="viz">
+    <div class="budgrid">
+      <div>
+        <svg viewBox="0 0 220 220" width="220" height="220" role="img" aria-label="Cơ cấu ngân sách nhóm 4">
+        <g transform="rotate(-90 110 110)">
+          <circle class="dseg" cx="110" cy="110" r="80" fill="none" stroke="#2a78d6" stroke-width="34" stroke-dasharray="199.13 303.52" stroke-dashoffset="-0.00"><title>Vé máy bay: 57.6 triệu (40.2%)</title></circle>
+          <circle class="dseg" cx="110" cy="110" r="80" fill="none" stroke="#eb6834" stroke-width="34" stroke-dasharray="108.36 394.30" stroke-dashoffset="-202.13"><title>Lưu trú: 31.7 triệu (22.2%)</title></circle>
+          <circle class="dseg" cx="110" cy="110" r="80" fill="none" stroke="#1baf7a" stroke-width="34" stroke-dasharray="91.76 410.90" stroke-dashoffset="-313.49"><title>Ăn uống: 27.0 triệu (18.9%)</title></circle>
+          <circle class="dseg" cx="110" cy="110" r="80" fill="none" stroke="#eda100" stroke-width="34" stroke-dasharray="59.12 443.54" stroke-dashoffset="-408.25"><title>Đi lại: 17.7 triệu (12.4%)</title></circle>
+          <circle class="dseg" cx="110" cy="110" r="80" fill="none" stroke="#e87ba4" stroke-width="34" stroke-dasharray="29.29 473.37" stroke-dashoffset="-470.37"><title>Tham quan &amp; khác: 9.2 triệu (6.4%)</title></circle>
+        </g>
+        <text x="110" y="104" text-anchor="middle" class="dcx-n">≈143</text>
+        <text x="110" y="122" text-anchor="middle" class="dcx-l">triệu · nhóm 4</text>
+        <text x="110" y="138" text-anchor="middle" class="dcx-s">~35–36tr/người</text>
+        </svg>
+      </div>
+      <div class="lg">
+        <div class="lgrow"><span class="sw" style="background:#2a78d6"></span><span class="ln">Vé máy bay</span><span class="lv">57.6tr · 40.2%</span></div>
+        <div class="lgrow"><span class="sw" style="background:#eb6834"></span><span class="ln">Lưu trú</span><span class="lv">31.7tr · 22.2%</span></div>
+        <div class="lgrow"><span class="sw" style="background:#1baf7a"></span><span class="ln">Ăn uống</span><span class="lv">27.0tr · 18.9%</span></div>
+        <div class="lgrow"><span class="sw" style="background:#eda100"></span><span class="ln">Đi lại (Shinkansen, tàu, IC)</span><span class="lv">17.7tr · 12.4%</span></div>
+        <div class="lgrow"><span class="sw" style="background:#e87ba4"></span><span class="ln">Tham quan &amp; khác</span><span class="lv">9.2tr · 6.4%</span></div>
+      </div>
+    </div>
+    <figcaption>Vé máy bay chiếm <b>40%</b> — phần đã khoá. Biến số lớn nhất còn lại là <b>ăn uống</b> (~19%): nghiêng street food thì về cận dưới. Chi tiết từng khoản ở bảng bên dưới. <span class="small">(Di chuột/chạm từng mảng để xem số.)</span></figcaption>
+  </figure>
+
   <div class="card" style="padding:6px 20px;">
     <table>
       <thead><tr><th>Khoản</th><th class="num">Đã đặt</th><th class="num">Còn phải chi (ước)</th></tr></thead>
