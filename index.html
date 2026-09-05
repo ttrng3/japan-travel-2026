@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chuyến Nhật của nhóm · 30/11 – 09/12/2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4F6F8; --card:#FFFFFF; --ink:#1B2440; --muted:#59617A;
+    --line:#DCE1EA; --indigo:#26346B; --amber:#B8791C; --amber-soft:#F6EBD4;
+    --red:#B23A3A; --red-soft:#F8E8E8; --green:#2F6B4F; --stripe:#EEF1F6;
+    --serif:'Playfair Display',Georgia,'Times New Roman',serif;
+    --sans:'Be Vietnam Pro',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.62;font-size:16px;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px;}
+  h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.22;margin:0;}
+  a{color:var(--indigo);}
+
+  /* NAV */
+  nav.top{position:sticky;top:0;z-index:50;background:rgba(27,36,64,.97);backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,.12);}
+  nav.top .row{display:flex;align-items:center;gap:18px;height:54px;overflow-x:auto;scrollbar-width:none;}
+  nav.top .row::-webkit-scrollbar{display:none;}
+  nav.top .brand{font-family:var(--serif);color:#fff;font-weight:700;font-size:1.02rem;white-space:nowrap;padding-right:6px;}
+  nav.top a{color:#C9D0E2;text-decoration:none;font-size:.9rem;white-space:nowrap;padding:4px 2px;transition:color .15s;}
+  nav.top a:hover{color:#E7C983;}
+
+  /* HERO */
+  header.hero{background:linear-gradient(155deg,#171f38 0%,#26346B 58%,#33234a 100%);color:#fff;padding:56px 0 42px;position:relative;overflow:hidden;}
+  .glow{position:absolute;border-radius:50%;pointer-events:none;}
+  .glow.a{top:-60px;right:-40px;width:260px;height:260px;background:radial-gradient(circle at 40% 40%,rgba(232,201,131,.32),transparent 70%);}
+  .glow.b{bottom:-80px;left:10%;width:200px;height:200px;background:radial-gradient(circle at 50% 50%,rgba(120,150,230,.28),transparent 70%);}
+  .hero .kick{color:#E7C983;font-size:.9rem;margin:0 0 12px;font-weight:500;}
+  .hero h1{color:#fff;font-size:2.7rem;letter-spacing:-.01em;}
+  .hero .route{font-size:1.15rem;color:#D7DCEA;margin:8px 0 26px;}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;border-top:1px solid rgba(255,255,255,.16);padding-top:22px;}
+  .stat .n{font-family:var(--serif);font-size:1.7rem;color:#fff;font-weight:700;}
+  .stat .l{font-size:.8rem;color:#B9C1D6;}
+  @media(max-width:640px){.hero h1{font-size:2rem;}.stats{grid-template-columns:repeat(2,1fr);}}
+
+  section{padding:44px 0 4px;}
+  .sec-head{display:flex;align-items:baseline;gap:12px;border-bottom:2px solid var(--ink);padding-bottom:9px;margin-bottom:20px;}
+  .sec-num{font-family:var(--serif);font-size:1.05rem;color:var(--amber);min-width:30px;}
+  .sec-head h2{font-size:1.55rem;}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:14px;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  @media(max-width:720px){.grid2,.grid3{grid-template-columns:1fr;}}
+
+  table{width:100%;border-collapse:collapse;font-size:.93rem;}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{color:var(--muted);font-weight:600;font-size:.8rem;}
+  tbody tr:nth-child(odd){background:var(--stripe);}
+  td.num,th.num{text-align:right;white-space:nowrap;}
+  .tot td{border-top:2px solid var(--ink);font-weight:700;background:#fff;}
+
+  .tag{display:inline-block;font-size:.68rem;padding:2px 9px;border-radius:20px;font-weight:600;letter-spacing:.02em;vertical-align:middle;}
+  .tag.booked{background:var(--amber-soft);color:#7A5210;}
+  .tag.star{background:#26346B;color:#fff;}
+  .pill{font-size:.8rem;color:var(--muted);}
+  .price{color:var(--green);font-weight:600;white-space:nowrap;}
+  .small{font-size:.86rem;color:var(--muted);}
+  h3.blk{font-size:1.08rem;margin:16px 0 6px;}
+  h3.blk:first-child{margin-top:0;}
+  ul.clean{margin:6px 0;padding-left:20px;}
+  ul.clean li{margin:5px 0;}
+
+  .callout{border-left:4px solid var(--amber);background:var(--amber-soft);padding:12px 16px;border-radius:0 8px 8px 0;margin:12px 0;font-size:.94rem;}
+  .warn{border-left:4px solid var(--red);background:var(--red-soft);padding:12px 16px;border-radius:0 8px 8px 0;margin:12px 0;font-size:.94rem;}
+
+  /* day timeline */
+  .day{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:14px;overflow:hidden;}
+  .day .dh{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:13px 18px;background:#1B2440;color:#fff;flex-wrap:wrap;}
+  .day .dh .dl{font-family:var(--serif);font-size:1.12rem;font-weight:700;}
+  .day .dh .dd{font-size:.85rem;color:#C9D0E2;}
+  .slots{padding:6px 18px 14px;}
+  .slot{display:grid;grid-template-columns:72px 1fr;gap:14px;padding:11px 0;border-bottom:1px dashed var(--line);}
+  .slot:last-child{border-bottom:none;}
+  .slot .t{color:var(--amber);font-weight:700;font-size:.82rem;padding-top:2px;}
+  .slot .b strong{display:block;}
+  .slot .b span{color:var(--muted);font-size:.9rem;}
+  .note{font-size:.82rem;color:var(--muted);font-style:italic;padding:8px 0 2px;}
+
+  /* food */
+  .food-hero{background:linear-gradient(120deg,#26346B,#33234a);color:#fff;border-radius:12px;padding:20px 22px;margin-bottom:16px;}
+  .food-hero h3{color:#fff;font-size:1.25rem;}
+  .food-hero .tag{margin-left:6px;}
+  .eat{border:1px solid var(--line);border-radius:10px;padding:6px 16px 12px;background:#fff;margin-bottom:12px;}
+  .eat h4{font-family:var(--serif);font-size:1.1rem;margin:14px 0 4px;}
+  .dish{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px solid var(--line);font-size:.93rem;}
+  .dish:last-child{border-bottom:none;}
+  .dish .d b{color:var(--ink);}
+  .dish .d span{color:var(--muted);}
+
+  .foot{margin:40px 0 70px;padding-top:18px;border-top:1px solid var(--line);font-size:.82rem;color:var(--muted);}
+  .anchor{scroll-margin-top:64px;}
+
+  /* emergency card */
+  .ecard{border:2px solid var(--ink);border-radius:12px;overflow:hidden;background:#fff;margin-bottom:14px;}
+  .ecard .eh{background:var(--red);color:#fff;padding:12px 18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;}
+  .ecard .eh .et{font-family:var(--serif);font-weight:700;font-size:1.15rem;}
+  .ecard .eh .es{font-size:.8rem;color:#F6D9D9;}
+  .ecard .eb{padding:4px 18px 14px;}
+  .erow{display:grid;grid-template-columns:150px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:.92rem;}
+  .erow:last-child{border-bottom:none;}
+  .erow .k{color:var(--muted);font-weight:600;}
+  .erow .v b{color:var(--ink);}
+  .erow .v .num{font-family:var(--serif);font-weight:700;color:var(--red);font-size:1.02rem;white-space:nowrap;}
+  .phrases{display:grid;grid-template-columns:1fr 1fr;gap:0 22px;}
+  .phrases .p{display:grid;grid-template-columns:1fr;padding:7px 0;border-bottom:1px dashed var(--line);font-size:.9rem;}
+  .phrases .p b{color:var(--ink);}
+  .phrases .p span{color:var(--muted);}
+  .phrases .p i{color:var(--indigo);font-style:normal;font-weight:600;}
+  @media(max-width:640px){.erow{grid-template-columns:1fr;gap:2px;}.phrases{grid-template-columns:1fr;}}
+  .printbtn{display:inline-block;background:var(--ink);color:#fff;border:none;border-radius:8px;padding:9px 16px;font-family:var(--sans);font-size:.9rem;font-weight:600;cursor:pointer;margin:2px 0 10px;}
+  @media print{
+    nav.top,.printbtn,.glow{display:none!important;}
+    body{background:#fff;font-size:12px;}
+    section:not(#khancap){display:none!important;}
+    header.hero{background:#fff!important;color:#000;padding:0 0 10px;}
+    .hero h1,.hero .kick,.hero .route{color:#000!important;}
+    .stats{display:none;}
+    #khancap{padding-top:0;}
+    .ecard{page-break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap row">
+    <span class="brand">日本 · Nhật 2026</span>
+    <a href="#tomtat">Tổng quan</a>
+    <a href="#vemaybay">Chuyến bay</a>
+    <a href="#choo">Chỗ ở</a>
+    <a href="#lichtrinh">Lịch trình</a>
+    <a href="#anuong">Ăn uống</a>
+    <a href="#ngansach">Ngân sách</a>
+    <a href="#meo">Mẹo</a>
+    <a href="#checklist">Chuẩn bị</a>
+    <a href="#khancap">Khẩn cấp</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <span class="glow a"></span><span class="glow b"></span>
+  <div class="wrap">
+    <p class="kick">Nhóm 4 người · mùa đông · bay thẳng từ Hà Nội</p>
+    <h1>Tokyo · Kyoto · Osaka</h1>
+    <p class="route">30/11 → 09/12/2026 · 9 đêm · Vietnam Airlines (mã EINY6B)</p>
+    <div class="stats">
+      <div class="stat"><div class="n" id="countdown">–</div><div class="l">ngày nữa khởi hành</div></div>
+      <div class="stat"><div class="n">9</div><div class="l">đêm · 3 thành phố</div></div>
+      <div class="stat"><div class="n">4<span style="font-size:1rem">+1</span></div><div class="l">người (Ngân ở Kyoto)</div></div>
+      <div class="stat"><div class="n">~35tr</div><div class="l">ước/người</div></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<!-- KHO ĐIỂM -->
+<section id="khodiem" class="anchor">
+  <div class="sec-head"><span class="sec-num">01</span><h2>Kho điểm hiện tại</h2></div>
+  <p class="small">Xác nhận 05/09/2026. Chuyến này <b>chưa cộng/trừ điểm</b>: vé do Vân Anh trả, khách sạn Kyoto do Ngân trả nên không phát sinh điểm chi tiêu cho bạn; dặm Lotusmiles chỉ tích <b>sau khi bay</b> (vé Super Lite tích rất mỏng — tính lại sau chuyến).</p>
+  <div class="card" style="padding:6px 20px;">
+    <table>
+      <thead><tr><th>Chương trình</th><th class="num">Số dư</th><th>Ghi chú</th></tr></thead>
+      <tbody>
+        <tr><td>Chase UR Unlimited</td><td class="num">209.682</td><td class="small">chỉ cashback ~1 cent/điểm</td></tr>
+        <tr><td>Chase UR Cash</td><td class="num">92.000</td><td class="small">cashback</td></tr>
+        <tr><td>United MileagePlus</td><td class="num">42.270 dặm</td><td class="small">hội viên thường</td></tr>
+        <tr><td>Lotusmiles (VN)</td><td class="num">37.908 dặm</td><td class="small">hạng Titanium</td></tr>
+        <tr><td>Amex Membership Rewards</td><td class="num">13.098</td><td class="small">chuyển được nhiều đối tác</td></tr>
+        <tr><td>Vietjet SkyJoy · khách sạn</td><td class="num">?</td><td class="small">chưa rõ — bạn cập nhật khi rảnh</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout"><b>Dặm Lotusmiles sắp hết hạn:</b> 1.399 dặm (30/06/2027) · 702 dặm (31/07/2027) · 1.180 dặm (30/09/2027). Còn xa, mình sẽ nhắc trước 60 ngày.</div>
+</section>
+
+<!-- TÓM TẮT -->
+<section id="tomtat" class="anchor">
+  <div class="sec-head"><span class="sec-num">02</span><h2>Tóm tắt chuyến đi</h2></div>
+  <div class="grid2">
+    <div class="card">
+      <h3 class="blk">Khung chuyến</h3>
+      <ul class="clean">
+        <li><b>Lộ trình:</b> Tokyo (5 đêm) → Kyoto (1 đêm) → Osaka (3 đêm)</li>
+        <li><b>Ngày:</b> 30/11 (CN) → 09/12 (T4), 2026</li>
+        <li><b>Người:</b> Quốc · Vân Anh · Thảo · Phi bay cả chuyến; Ngân chỉ nhập đoàn ở Kyoto</li>
+        <li><b>Vào:</b> Tokyo Haneda · <b>Ra:</b> Osaka Kansai (KIX)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="blk">Ngân sách dự kiến (nhóm 4)</h3>
+      <ul class="clean">
+        <li><b>Đã đặt:</b> ~86,7 triệu (vé + 2 Airbnb)</li>
+        <li><b>Còn phải chi:</b> ~54–58 triệu (chưa gồm mua sắm)</li>
+        <li><b>Tổng ước:</b> ~141–145 triệu → ~35–36 triệu/người</li>
+        <li class="small">Chưa gồm phần khách sạn Kyoto trả lại cho Ngân &amp; mua sắm.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout"><b>Thời điểm quá đẹp:</b> ba tuần đầu tháng 12 là một trong những khoảng vắng khách nhất năm — <b>cuối mùa lá đỏ</b> (Kyoto &amp; hàng bạch quả Tokyo có thể còn sót lá muộn, nhiều buổi <b>thắp đèn momiji chạy tới ~giữa tháng 12</b>), chưa tới cao điểm Giáng sinh &amp; năm mới. Trời khô, nắng, tầm nhìn tốt (dễ thấy núi Phú Sĩ), cả nước lên đèn illumination mùa đông. Về 09/12, tránh được đợt kẹt cứng 28/12–03/01.</div>
+</section>
+
+<!-- VÉ MÁY BAY -->
+<section id="vemaybay" class="anchor">
+  <div class="sec-head"><span class="sec-num">03</span><h2>Chuyến bay <span class="tag booked">ĐÃ ĐẶT</span></h2></div>
+  <div class="card" style="padding:6px 20px;">
+    <table>
+      <thead><tr><th>Chặng</th><th>Chuyến</th><th>Giờ</th><th>Hạng</th></tr></thead>
+      <tbody>
+        <tr><td><b>HAN → Tokyo Haneda</b><br><span class="small">30/11 · T2 → T3</span></td><td>VN384</td><td>08:35 → 15:05<br><span class="small">bay 4h30</span></td><td>Eco Super Lite (P)</td></tr>
+        <tr><td><b>Osaka Kansai → HAN</b><br><span class="small">09/12 · T1 → T2</span></td><td>VN339</td><td>15:40 → 19:15<br><span class="small">bay 5h35</span></td><td>Eco Super Lite (P)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <h3 class="blk">Đã chốt</h3>
+      <ul class="clean">
+        <li>Mã đặt chỗ: <b>EINY6B</b> · 4 khách</li>
+        <li>Giá: <b>14.399.000đ/vé</b> → tổng <b>57.596.000đ</b></li>
+        <li>Hành lý: <b>2 kiện ký gửi/khách</b> + suất ăn seafood</li>
+        <li>Ghế: Quốc 33H/35B · Vân Anh 33K/35A · Thảo 34K/36A · Phi 34H/36B</li>
+        <li>Thanh toán: thẻ của Vân Anh (…7422)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="blk">Lưu ý</h3>
+      <ul class="clean">
+        <li>Vé <b>không hoàn</b> (NONREF), hạn chế đổi (phí đổi ~4,5tr/vé nếu có).</li>
+        <li>Hạng Super Lite tích Lotusmiles rất mỏng — sẽ khai/cộng dặm sau khi bay.</li>
+        <li>Đã có sẵn 2 kiện ký gửi → thoải mái mua đồ mang về.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CHỖ Ở -->
+<section id="choo" class="anchor">
+  <div class="sec-head"><span class="sec-num">04</span><h2>Chỗ ở <span class="tag booked">ĐÃ ĐẶT</span></h2></div>
+
+  <div class="card">
+    <h3 class="blk">Tokyo · Airbnb “Green’s apartment” — Ikebukuro</h3>
+    <p class="small" style="margin-top:0">2-chōme-65-1 Ikebukuro, Toshima City · nhận 30/11 (16:00) → trả 05/12 (10:00) · 5 đêm</p>
+    <ul class="clean">
+      <li>Tổng <b>22.756.470đ</b> cho 4 người/5 đêm (~1,14 triệu/người/đêm) <span class="tag booked">ĐÃ TRẢ</span></li>
+      <li>Vị trí đỉnh: cách ga Ikebukuro ~7 phút đi bộ — đầu mối tàu lớn; đi Shinjuku ~7’, Shibuya ~10’.</li>
+      <li>Mã xác nhận: HMRN9XS5P8 · host: Green (+81 90-6136-0560)</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3 class="blk">Kyoto · Toyoko Inn Kyoto Nijojo Minami (東横INN)</h3>
+    <p class="small" style="margin-top:0">Nakagyo-ku, gần lâu đài Nijo · nhận 05/12 → trả 06/12 · 1 đêm · 2 phòng triple / 5 khách</p>
+    <ul class="clean">
+      <li>Đặt qua Agoda (ID 1753696635), đứng tên &amp; thẻ của Ngân (MC …7392) <span class="tag booked">NGÂN ỨNG</span></li>
+      <li>Đã gồm <b>ăn sáng + wifi</b>. Huỷ miễn phí trước 04/12.</li>
+      <li>Nhớ chốt với Ngân số tiền chia lại (ước ~2,6–3,3 triệu cho 4 bạn).</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3 class="blk">Osaka · Airbnb “Epo Nishi-Nagahori” — gần Shinsaibashi</h3>
+    <p class="small" style="margin-top:0">4-chōme-14-10 Shinmachi, Nishi Ward · nhận 06/12 (16:00) → trả 09/12 (10:00) · 3 đêm</p>
+    <ul class="clean">
+      <li>Tổng <b>6.373.516đ</b> cho 4 người/3 đêm (~531k/người/đêm) — rẻ &amp; đúng khu ăn chơi <span class="tag booked">ĐÃ TRẢ</span></li>
+      <li>Sát Shinsaibashi/Dotonbori (đi bộ ~10–15’); <b>quán crab buffet Maruhana chỉ cách ~5 phút đi bộ</b> (xem mục Ăn uống).</li>
+      <li>Mã xác nhận: HM8HBDW8S3 · host: Afp (+81 50-3613-3481)</li>
+    </ul>
+  </div>
+
+  <div class="callout"><b>Airbnb không có lễ tân 24/7.</b> Trước ngày đi, xin host hướng dẫn tự nhận phòng (mã khoá) và xác nhận tốc độ wifi (bạn cần làm việc). Đến Tokyo ~17:30 là hợp lý (nhận phòng từ 16:00).</div>
+</section>
+
+<!-- LỊCH TRÌNH -->
+<section id="lichtrinh" class="anchor">
+  <div class="sec-head"><span class="sec-num">05</span><h2>Lịch trình từng ngày</h2></div>
+  <p class="small">Khung giờ gợi ý, xê dịch thoải mái. Tháng 12 trời tối sớm (~16:40) → xếp điểm ngoài trời buổi sáng/chiều, đèn &amp; ăn uống buổi tối. Phương án mưa ở cuối mục (tháng 12 chỉ ~4–6 ngày mưa cả tháng).</p>
+
+  <div class="day">
+    <div class="dh"><span class="dl">Ngày 1 · Bay + đến Tokyo</span><span class="dd">CN 30/11</span></div>
+    <div class="slots">
+      <div class="slot"><div class="t">08:35</div><div class="b"><strong>Bay VN384 HAN → Haneda</strong><span>Đến 15:05. Nhập cảnh + lấy hành lý ~16:00.</span></div></div>
+      <div class="slot"><div class="t">16:15</div><div class="b"><strong>Haneda → Ikebukuro</strong><span>4 người + vali: xe buýt Airport Limousine chạy thẳng (~¥1.400/người). Rẻ hơn: monorail + tuyến Yamanote (~¥660, phải đổi tàu).</span></div></div>
+      <div class="slot"><div class="t">17:30</div><div class="b"><strong>Nhận phòng, lấy IC card</strong><span>Cài Suica/PASMO vào điện thoại hoặc mua thẻ tại ga.</span></div></div>
+      <div class="slot"><div class="t">19:00</div><div class="b"><strong>Tối nhẹ ở Ikebukuro</strong><span>Khu “thánh địa ramen” — một tô nóng ấm bụng, dạo Sunshine City. Giữ sức, mai cày.</span></div></div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="dh"><span class="dl">Ngày 2 · Tokyo cổ kính</span><span class="dd">T2 01/12 · Asakusa – Ueno – Akihabara</span></div>
+    <div class="slots">
+      <div class="slot"><div class="t">08:00</div><div class="b"><strong>Chùa Senso-ji (Asakusa)</strong><span>Đi sớm chụp cổng Kaminarimon &amp; phố Nakamise vắng người. <span class="pill">Ikebukuro → Asakusa ~35’</span></span></div></div>
+      <div class="slot"><div class="t">10:30</div><div class="b"><strong>Sông Sumida / Skytree</strong><span>Dạo bờ sông, lên đài quan sát nếu trời trong.</span></div></div>
+      <div class="slot"><div class="t">13:00</div><div class="b"><strong>Ueno + chợ Ameyoko</strong><span>Ăn trưa ở Ameyoko (hải sản nướng, đồ vặt), dạo công viên/bảo tàng. Chợ này mở tới tối. <span class="pill">Asakusa → Ueno ~10’</span></span></div></div>
+      <div class="slot"><div class="t">16:00</div><div class="b"><strong>Akihabara</strong><span>Điện tử/anime/game, gachapon, quán cà phê chủ đề. Lên đèn về chiều rất “cyberpunk”.</span></div></div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="dh"><span class="dl">Ngày 3 · Tokyo hiện đại</span><span class="dd">T3 02/12 · Harajuku – Shibuya – Shinjuku</span></div>
+    <div class="slots">
+      <div class="slot"><div class="t">08:30</div><div class="b"><strong>Đền Meiji Jingu + hàng bạch quả Gaien</strong><span>Rừng thiêng giữa phố, sáng sớm yên tĩnh. Ghé <b>Meiji Jingu Gaien</b> gần đó — đại lộ bạch quả (ginkgo) <b>vàng rực đúng cuối 11–đầu 12</b>, ngay dịp bạn tới. <span class="pill">Ikebukuro → Harajuku ~15’</span></span></div></div>
+      <div class="slot"><div class="t">10:30</div><div class="b"><strong>Takeshita &amp; Omotesando</strong><span>Phố thời trang teen + đại lộ cây rợp (hàng hiệu, kiến trúc đẹp). Ăn trưa quanh đây.</span></div></div>
+      <div class="slot"><div class="t">14:00</div><div class="b"><strong>Shibuya</strong><span>Ngã tư Scramble, tượng Hachiko. <b>Đặt trước Shibuya Sky</b> khung hoàng hôn ~16:00 — vé theo suất, hết nhanh.</span></div></div>
+      <div class="slot"><div class="t">17:30</div><div class="b"><strong>Shinjuku về đêm</strong><span>Ngõ yakitori Omoide Yokocho, Kabukicho, Golden Gai. Ghé illumination Shibuya “Blue Cave” nếu đang chạy. <b>Ngắm phố miễn phí:</b> đài quan sát Toà Thị chính Tokyo (Tocho) ở Shinjuku — <b>0đ</b>, thay cho các đài vé ~¥2.500.</span></div></div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="dh"><span class="dl">Ngày 4 · Chuyến trong ngày</span><span class="dd">T4 03/12 · Kamakura + Enoshima</span></div>
+    <div class="slots">
+      <div class="slot"><div class="t">08:00</div><div class="b"><strong>Đi Kamakura</strong><span>Cố đô ven biển: Đại Phật Kotoku-in, chùa Hasedera nhìn ra vịnh. <span class="pill">Tokyo → Kamakura ~1h</span></span></div></div>
+      <div class="slot"><div class="t">12:30</div><div class="b"><strong>Phố Komachi + tàu Enoden</strong><span>Ăn trưa (thử <b>shirasu-don</b> — cơm cá cơm trắng, đặc sản vùng biển này), đi tàu cổ Enoden dọc biển.</span></div></div>
+      <div class="slot"><div class="t">15:00</div><div class="b"><strong>Đảo Enoshima</strong><span>Hang động, tháp ngắm; hoàng hôn nhìn Phú Sĩ (tháng 12 trời trong, cơ hội thấy cao).</span></div></div>
+      <div class="note">Phương án thay: 1 ngày Kawaguchiko (hồ + Phú Sĩ) nếu muốn thấy núi thật gần — nhưng đi về ~5–6h di chuyển.</div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="dh"><span class="dl">Ngày 5 · Tokyo · sáng chợ cá</span><span class="dd">T6 04/12 · Tsukiji – teamLab – Ginza</span></div>
+    <div class="slots">
+      <div class="slot"><div class="t">08:00</div><div class="b"><strong>Chợ ngoài Tsukiji (bữa sáng foodie)</strong><span>Đi sớm, đồ tươi nhất, ít đông. Xem danh sách món “ăn như dân địa phương” ở mục Ăn uống.</span></div></div>
+      <div class="slot"><div class="t">11:00</div><div class="b"><strong>teamLab (Planets Toyosu / Borderless)</strong><span>Bảo tàng nghệ thuật số, sống ảo cực đỉnh. <b>Đặt vé trước</b> theo khung giờ.</span></div></div>
+      <div class="slot"><div class="t">14:30</div><div class="b"><strong>Ginza + ga Tokyo</strong><span>Mua sắm, kiến trúc ga Tokyo; chiều tối Marunouchi lên đèn.</span></div></div>
+      <div class="slot"><div class="t">18:00</div><div class="b"><strong>Tối tự do</strong><span>Ngày đệm — mua nốt đồ, gói ghém, mai đi Kyoto.</span></div></div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="dh"><span class="dl">Ngày 6 · Tokyo → Kyoto</span><span class="dd">T7 05/12 · Shinkansen · gặp Ngân</span></div>
+    <div class="slots">
+      <div class="slot"><div class="t">09:30</div><div class="b"><strong>Trả phòng, ra ga Tokyo</strong><span>Mua ekiben (cơm hộp) ăn trên tàu — nét rất Nhật.</span></div></div>
+      <div class="slot"><div class="t">11:00</div><div class="b"><strong>Shinkansen Nozomi Tokyo → Kyoto</strong><span>~2h15, <b>¥14.170/người</b> (ghế đặt). Ngồi <b>ghế E bên phải</b> ngắm Phú Sĩ (~45’ sau khi rời Tokyo).</span></div></div>
+      <div class="slot"><div class="t">13:30</div><div class="b"><strong>Đến Kyoto, nhận phòng</strong><span>Toyoko Inn Nijojo Minami. Gặp Ngân, cất vali.</span></div></div>
+      <div class="slot"><div class="t">15:00</div><div class="b"><strong>Fushimi Inari lúc chiều tà</strong><span>Ngàn cổng torii đỏ, mở 24h — chiều muộn ít người, ánh sáng đẹp. <span class="pill">Kyoto Station → Inari ~5’</span></span></div></div>
+      <div class="slot"><div class="t">18:30</div><div class="b"><strong>Gion + ăn tối Pontocho</strong><span>Dạo phố cổ Gion, ăn tối ở ngõ Pontocho ven sông Kamo. Ngay cạnh Gion là <b>Kodai-ji</b> (khu Higashiyama) — nếu còn chạy <b>thắp đèn lá đỏ ban đêm</b> (light-up momiji thường tới ~giữa tháng 12) thì đây là một đêm Kyoto để đời.</span></div></div>
+    </div>
+    <div class="note">Bạn chỉ có <b>1 đêm ở Kyoto</b> → cân nhắc <b>gửi vali thẳng Tokyo → Osaka</b> bằng takkyubin (xem mục Đi lại), để 2 ngày Kyoto tay không, nhẹ nhõm.</div>
+  </div>
+
+  <div class="day">
+    <div class="dh"><span class="dl">Ngày 7 · Kyoto → Osaka</span><span class="dd">CN 06/12 · Arashiyama · Ngân tách đoàn</span></div>
+    <div class="slots">
+      <div class="slot"><div class="t">08:00</div><div class="b"><strong>Arashiyama sáng sớm</strong><span>Rừng tre Sagano + chùa Tenryu-ji, đi trước 9h tránh đông. Cà phê % Arabica bên sông.</span></div></div>
+      <div class="slot"><div class="t">10:00</div><div class="b"><strong>Trả phòng, tạm biệt Ngân</strong><span>4 người lấy vali ra ga.</span></div></div>
+      <div class="slot"><div class="t">12:30</div><div class="b"><strong>Kyoto → Osaka (Nishi-Nagahori)</strong><span>JR Special Rapid ~29’ (~¥580) tới ga Osaka rồi metro; tổng ~50–60’.</span></div></div>
+      <div class="slot"><div class="t">16:00</div><div class="b"><strong>Nhận phòng Osaka</strong><span>Airbnb Nishi-Nagahori, sát Shinsaibashi.</span></div></div>
+      <div class="slot"><div class="t">18:30</div><div class="b"><strong>Chào Osaka tại Dotonbori</strong><span>Bảng đèn Glico, kênh Dotonbori, “ăn tới sập” (kuidaore).</span></div></div>
+      <div class="note">Gợi ý tối: đặt bàn <b>crab buffet Maruhana</b> (ngay gần nhà) cho một bữa cua đã đời — xem mục Ăn uống.</div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="dh"><span class="dl">Ngày 8 · Osaka trọn ngày</span><span class="dd">T2 07/12 · Lâu đài – Kuromon – Shinsekai</span></div>
+    <div class="slots">
+      <div class="slot"><div class="t">09:00</div><div class="b"><strong>Lâu đài Osaka</strong><span>Toà thiên thủ giữa công viên; lên tầng cao ngắm thành phố.</span></div></div>
+      <div class="slot"><div class="t">12:00</div><div class="b"><strong>Chợ Kuromon Ichiba (ăn trưa foodie)</strong><span>“Bếp của Osaka” — sò điệp/hàu nướng, bò wagyu xiên, nhím biển, cua. Xem mục Ăn uống.</span></div></div>
+      <div class="slot"><div class="t">14:30</div><div class="b"><strong>Shinsekai + tháp Tsutenkaku</strong><span>Khu retro, quê hương kushikatsu (nhớ luật “không chấm nước 2 lần”).</span></div></div>
+      <div class="slot"><div class="t">17:30</div><div class="b"><strong>Umeda Sky / illumination Nakanoshima</strong><span>Đài “Floating Garden”; tháng 12 có <b>Osaka Hikari Renaissance</b> — trình chiếu ánh sáng dọc Nakanoshima.</span></div></div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="dh"><span class="dl">Ngày 9 · Chuyến trong ngày</span><span class="dd">T3 08/12 · Nara (hoặc USJ)</span></div>
+    <div class="slots">
+      <div class="slot"><div class="t">08:30</div><div class="b"><strong>Đi Nara</strong><span>Nai thả rông cúi chào xin bánh, chùa Todai-ji tượng Phật đồng khổng lồ, đền Kasuga đèn đá. Thử <b>mochi giã tay Nakatanidou</b> &amp; <b>kakinoha-zushi</b> (sushi gói lá hồng). <span class="pill">Osaka → Nara ~45’</span></span></div></div>
+      <div class="slot"><div class="t">15:00</div><div class="b"><strong>Về Osaka</strong><span>Nghỉ ngơi, chuẩn bị đêm cuối.</span></div></div>
+      <div class="slot"><div class="t">18:00</div><div class="b"><strong>Đêm cuối Shinsaibashi/Dotonbori</strong><span>Mua sắm chặng cuối + bữa tối “chốt đơn”.</span></div></div>
+      <div class="note">Mê cảm giác mạnh/anime? Đổi Nara thành <b>Universal Studios Japan</b> (Super Nintendo World) — cần đặt vé + Express Pass trước.</div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="dh"><span class="dl">Ngày 10 · Về nhà</span><span class="dd">T4 09/12 · Kansai → Hà Nội</span></div>
+    <div class="slots">
+      <div class="slot"><div class="t">10:00</div><div class="b"><strong>Trả phòng</strong><span>Ăn sáng, mua nốt quà gần Shinsaibashi.</span></div></div>
+      <div class="slot"><div class="t">11:30</div><div class="b"><strong>Ra sân bay Kansai (KIX)</strong><span>Nishi-Nagahori → Namba (metro ~10’) → Nankai: Airport Express ¥970 (~50’) hoặc Rapi:t ¥1.670 (~40’, ghế đặt).</span></div></div>
+      <div class="slot"><div class="t">13:00</div><div class="b"><strong>Có mặt KIX</strong><span>Làm thủ tục <b>hoàn thuế</b> (xem mục Mẹo), check-in, ăn trưa.</span></div></div>
+      <div class="slot"><div class="t">15:40</div><div class="b"><strong>Bay VN339 KIX → HAN</strong><span>Đến Hà Nội 19:15.</span></div></div>
+      <div class="warn"><b>Mua sắm nhiều?</b> Từ 01/11/2026 phải làm thủ tục hoàn thuế ở sân bay <b>trước khi ký gửi hành lý</b>. Có thể xếp hàng lâu → nên ra KIX sớm hơn (~12:30).</div>
+    </div>
+  </div>
+
+  <div class="grid2" style="margin-top:16px;">
+    <div class="card">
+      <h3 class="blk">Phương án khi mưa</h3>
+      <ul class="clean">
+        <li><b>Tokyo:</b> Sunshine City (thuỷ cung, Pokémon Center), teamLab, bảo tàng Ueno, TTTM, Akihabara.</li>
+        <li><b>Kyoto:</b> chợ có mái Nishiki, khu ga Kyoto; chùa vẫn đi được với ô.</li>
+        <li><b>Osaka:</b> chợ Kuromon (có mái), phố ngầm Umeda, thuỷ cung Kaiyukan, USJ.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="blk">Đi lại trong thành phố</h3>
+      <ul class="clean">
+        <li>Dùng <b>IC card</b> (Suica/PASMO ở Tokyo, ICOCA ở Kansai — hoặc cài vào điện thoại). Chạm là đi, dùng luôn ở cửa hàng tiện lợi.</li>
+        <li><b>Không cần JR Pass</b> cho lộ trình này (xem mục Mẹo).</li>
+        <li><b>Gửi vali (takkyubin ~¥2.000/kiện):</b> ship thẳng Tokyo → Osaka để đi Kyoto tay không. <b>Lưu ý:</b> Airbnb không có lễ tân → phải hẹn được giờ nhận với host, hoặc gửi tới <b>konbini/khách sạn</b> gần đó. Gửi trước <b>~2 ngày</b>. Không chắc host nhận được thì cứ kéo vali theo.</li>
+        <li>Google Maps chỉ đường tàu ở Nhật chính xác từng phút.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ĂN UỐNG -->
+<section id="anuong" class="anchor">
+  <div class="sec-head"><span class="sec-num">06</span><h2>Ăn uống · bản đồ foodie</h2></div>
+  <p class="small">Khớp gu của bạn: mạo hiểm, mê street food &amp; món local. Đa số quán/quầy dưới đây cứ tới, không cần đặt (trừ Maruhana &amp; nhà hàng đông). Giá tham chiếu theo yên (¥); ~165đ/¥.</p>
+
+  <!-- Tsukiji star -->
+  <div class="food-hero">
+    <h3>Tsukiji Outer Market — bữa sáng “ăn như dân địa phương” <span class="tag star">NÊN ƯU TIÊN</span></h3>
+    <p style="margin:8px 0 0;font-size:.94rem;color:#E4E8F2">Chợ cá trong (đấu giá cá ngừ) đã dời sang Toyosu 2018, nhưng <b>chợ ngoài Tsukiji vẫn sống động với ~400 quầy</b>. Đi <b>trước 9h</b> đồ tươi nhất &amp; ít đông; phần lớn quầy đóng đầu giờ chiều. Mang theo <b>tiền mặt</b>. Vào lịch của bạn rơi vào <b>thứ Sáu 04/12</b> — chợ mở bình thường (một số quầy nghỉ thứ Tư/CN).</p>
+  </div>
+  <div class="eat">
+    <h4>Ăn gì ở Tsukiji</h4>
+    <div class="dish"><div class="d"><b>Tamagoyaki xiên que</b> <span>— trứng cuộn ngọt nóng hổi, ăn dạo. Quầy nổi tiếng: Yamacho, Marutake (hay hết trước trưa).</span></div><div class="price">¥100–150</div></div>
+    <div class="dish"><div class="d"><b>Kaisendon</b> <span>— tô cơm hải sản: maguro, cá hồi, ikura, uni, tôm. Nếu chỉ ăn 1 bữa, chọn món này.</span></div><div class="price">¥1.500–4.000</div></div>
+    <div class="dish"><div class="d"><b>Set nếm cá ngừ (maguro)</b> <span>— akami (nạc), chutoro (béo vừa), otoro (béo nhất) + tamago + ikura.</span></div><div class="price">¥1.500–4.000</div></div>
+    <div class="dish"><div class="d"><b>Sò điệp (hotate) &amp; hàu nướng</b> <span>— nướng bơ/xì dầu tại chỗ, quầy ở lối vào chợ.</span></div><div class="price">¥500–800</div></div>
+    <div class="dish"><div class="d"><b>Uni (nhím biển) trong cốc</b> <span>— béo ngậy vị biển; uni ngon là vị ngọt-kem, không đắng. Lần đầu ăn phần nhỏ.</span></div><div class="price">¥500–1.200</div></div>
+    <div class="dish"><div class="d"><b>Horumon-don ở Kitsuneya (きつねや)</b> <span>— cơm lòng bò hầm miso ngọt-mặn đậm đà, món “gan dạ” hợp gu bạn. Quán huyền thoại, đứng ăn ở bàn ven đường.</span></div><div class="price">~¥1.000</div></div>
+    <div class="dish"><div class="d"><b>Món nhâm nhi khác</b> <span>— unagi xiên (lươn nướng), menchi-katsu (chả bò chiên), wagyu xiên, taiyaki, dâu daifuku, đồ ngọt matcha.</span></div><div class="price">¥200–800</div></div>
+    <p class="small" style="margin:8px 0 0">Muốn xem đấu giá cá ngừ &amp; sushi cao cấp buổi sáng: sang <b>Toyosu Market</b> (khu khác, cần đặt trước cho khu đấu giá).</p>
+  </div>
+
+  <h3 class="blk" style="margin-top:22px">Tokyo — thêm điểm ăn</h3>
+  <div class="grid2">
+    <div class="eat">
+      <h4>Ramen Ikebukuro (gần nhà)</h4>
+      <div class="dish"><div class="d"><b>Tonkotsu đậm đà</b> <span>— khu này là “phố ramen” của Tokyo, nhiều quán xếp hàng đáng thử.</span></div><div class="price">¥1.000–1.500</div></div>
+      <div class="dish"><div class="d"><b>Sunshine City</b> <span>— tầng ẩm thực đa dạng, tránh mưa tốt.</span></div><div class="price">tuỳ</div></div>
+    </div>
+    <div class="eat">
+      <h4>Ăn vặt phố</h4>
+      <div class="dish"><div class="d"><b>Ameyoko (Ueno)</b> <span>— hải sản nướng, xiên que, chợ mở tới tối.</span></div><div class="price">¥300–1.000</div></div>
+      <div class="dish"><div class="d"><b>Omoide Yokocho (Shinjuku)</b> <span>— ngõ yakitori khói nghi ngút, chất izakaya.</span></div><div class="price">~¥2.000</div></div>
+      <div class="dish"><div class="d"><b>Harajuku</b> <span>— crepe Takeshita; món lạ nên thử: gyukatsu, monjayaki, tonkatsu.</span></div><div class="price">¥500–2.000</div></div>
+    </div>
+  </div>
+
+  <h3 class="blk" style="margin-top:22px">Kyoto — chợ &amp; ngõ cổ</h3>
+  <div class="grid2">
+    <div class="eat">
+      <h4>Chợ Nishiki (錦市場)</h4>
+      <div class="dish"><div class="d"><b>Tako-tamago</b> <span>— bạch tuộc nhỏ nhồi trứng cút, biểu tượng của chợ.</span></div><div class="price">¥300–500</div></div>
+      <div class="dish"><div class="d"><b>Bánh sữa đậu, dashimaki tamago, yuba tươi</b> <span>— ăn dạo dọc chợ có mái (đi được cả khi mưa).</span></div><div class="price">¥300–800</div></div>
+      <div class="dish"><div class="d"><b>Tsukemono &amp; mochi</b> <span>— dưa muối Kyoto, warabimochi tráng miệng.</span></div><div class="price">¥300–700</div></div>
+    </div>
+    <div class="eat">
+      <h4>Ngõ cổ &amp; món Kyoto</h4>
+      <div class="dish"><div class="d"><b>Pontocho (先斗町)</b> <span>— ngõ ăn tối ven sông, không khí đẹp.</span></div><div class="price">¥3.000–6.000</div></div>
+      <div class="dish"><div class="d"><b>Yudofu / obanzai</b> <span>— đậu hũ &amp; món nhà kiểu Kyoto thanh nhã.</span></div><div class="price">¥1.500–3.000</div></div>
+      <div class="dish"><div class="d"><b>% Arabica Arashiyama</b> <span>— cà phê view sông, kem matcha.</span></div><div class="price">¥500–800</div></div>
+    </div>
+  </div>
+
+  <!-- Osaka -->
+  <h3 class="blk" style="margin-top:22px">Osaka — đô ăn số 1 (kuidaore)</h3>
+
+  <div class="food-hero">
+    <h3>Japanese Buffet Dining Shinsaibashi Maruhana (心斎橋 丸花) <span class="tag star">BẠN MUỐN THỬ</span></h3>
+    <p style="margin:8px 0 0;font-size:.94rem;color:#E4E8F2">Buffet <b>ăn thả ga cua chân</b> (cua tuyết, cua tuyết đỏ, có suất cả cua hoàng đế) kèm lẩu shabu/sukiyaki, sushi, tempura, đồ chiên, tráng miệng — 80–100 món. Ngay <b>Higashi-Shinsaibashi (FUKU BLD, tầng 2), cách Airbnb của bạn ~5 phút đi bộ</b>. Review khách khen “8 loại chân cua, ngon”.</p>
+  </div>
+  <div class="eat">
+    <h4>Chốt trước khi đi Maruhana</h4>
+    <div class="dish"><div class="d"><b>Giờ mở</b> <span>— chỉ buổi tối: T2–T6 17:00–24:00; T7–CN 16:00–24:00.</span></div><div class="price">tối</div></div>
+    <div class="dish"><div class="d"><b>Giá theo course</b> <span>— course lẩu cua/sukiyaki ~¥7.700 (85–90 món); course cua tuyết + wagyu cao cấp tới ~¥17.600. Nồi lẩu heo/bò từ ~¥3.000–4.000. Add all-you-can-drink +¥1.000.</span></div><div class="price">¥3.000–17.600</div></div>
+    <div class="dish"><div class="d"><b>Nên đặt bàn trước</b> <span>— qua Tabelog / TableCheck (nhóm 4, cuối tuần dễ kín). Xác nhận lại giá &amp; món khi đặt.</span></div><div class="price">—</div></div>
+    <p class="small" style="margin:8px 0 0">Gợi ý: xếp vào <b>tối Ngày 7 (06/12)</b> ngay khi tới Osaka, hoặc đêm cuối. Giá/giờ có thể đổi — mình chưa đặt, chờ bạn “Chốt”.</p>
+  </div>
+
+  <div class="grid2">
+    <div class="eat">
+      <h4>Dotonbori (street food kinh điển)</h4>
+      <div class="dish"><div class="d"><b>Takoyaki</b> <span>— bánh bạch tuộc (Wanaka, Kukuru).</span></div><div class="price">¥600–1.200</div></div>
+      <div class="dish"><div class="d"><b>Okonomiyaki</b> <span>— bánh xèo Nhật (Mizuno, Chibo).</span></div><div class="price">¥900–1.500</div></div>
+      <div class="dish"><div class="d"><b>Kushikatsu Shinsekai (Daruma)</b> <span>— xiên chiên; luật “không chấm nước 2 lần”.</span></div><div class="price">¥100–250/xiên</div></div>
+    </div>
+    <div class="eat">
+      <h4>Chợ Kuromon Ichiba &amp; món gan dạ</h4>
+      <div class="dish"><div class="d"><b>Bò wagyu xiên, sò/hàu/nhím biển nướng</b> <span>— ăn tại chỗ, “bếp của Osaka”.</span></div><div class="price">¥500–2.000</div></div>
+      <div class="dish"><div class="d"><b>Fugu (cá nóc)</b> <span>— đặc sản Osaka, thử ở Shinsekai (quán có phép).</span></div><div class="price">tuỳ</div></div>
+      <div class="dish"><div class="d"><b>Horumon (lòng nướng), doteyaki (gân bò hầm miso)</b> <span>— món nhậu địa phương rất “đã”.</span></div><div class="price">¥500–1.500</div></div>
+    </div>
+  </div>
+
+  <div class="callout"><b>Mẹo ăn uống chung:</b> đồ <b>konbini</b> (7-Eleven, Lawson, FamilyMart) ngon &amp; rẻ bất ngờ. Quán nổi tiếng thường <b>chỉ nhận tiền mặt</b> hoặc mua vé máy trước cửa — thủ sẵn ít yên. Set trưa (teishoku) rẻ hơn tối nhiều. <b>Săn giảm giá tầng hầm ẩm thực (depachika)</b> ở department store lớn: <b>trước giờ đóng cửa (~19:30–20:30)</b> sushi/bento/đồ nướng dán tem giảm <b>30–50%</b> — một bữa tối ngon-bổ-rẻ.</div>
+</section>
+
+<!-- NGÂN SÁCH -->
+<section id="ngansach" class="anchor">
+  <div class="sec-head"><span class="sec-num">07</span><h2>Bảng ngân sách (VNĐ · nhóm 4)</h2></div>
+  <div class="card" style="padding:6px 20px;">
+    <table>
+      <thead><tr><th>Khoản</th><th class="num">Đã đặt</th><th class="num">Còn phải chi (ước)</th></tr></thead>
+      <tbody>
+        <tr><td>Vé máy bay (4 vé)</td><td class="num">57.596.000</td><td class="num">—</td></tr>
+        <tr><td>Airbnb Tokyo (5 đêm)</td><td class="num">22.756.470</td><td class="num">—</td></tr>
+        <tr><td>Airbnb Osaka (3 đêm)</td><td class="num">6.373.516</td><td class="num">—</td></tr>
+        <tr><td>Khách sạn Kyoto (Ngân ứng)</td><td class="num small">Ngân trả</td><td class="num">~2.600.000</td></tr>
+        <tr><td>Shinkansen Tokyo→Kyoto</td><td class="num">—</td><td class="num">~9.400.000</td></tr>
+        <tr><td>Tàu Kyoto→Osaka</td><td class="num">—</td><td class="num">~400.000</td></tr>
+        <tr><td>Sân bay (Haneda + KIX)</td><td class="num">—</td><td class="num">~1.600.000</td></tr>
+        <tr><td>Đi lại nội đô (IC card)</td><td class="num">—</td><td class="num">~6.300.000</td></tr>
+        <tr><td>Ăn uống (cả chuyến)</td><td class="num">—</td><td class="num">~24–30 triệu</td></tr>
+        <tr><td>Vé tham quan/trải nghiệm</td><td class="num">—</td><td class="num">~8.000.000</td></tr>
+        <tr><td>eSIM (4 người)</td><td class="num">—</td><td class="num">~1.200.000</td></tr>
+        <tr><td>Mua sắm / quà</td><td class="num">—</td><td class="num small">tuỳ bạn</td></tr>
+        <tr class="tot"><td>Tạm tính (chưa mua sắm)</td><td class="num">86.725.986</td><td class="num">~54–58 triệu</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="small"><b>Tổng ~141–145 triệu cho nhóm 4</b> (≈ 35–36 triệu/người), chưa gồm mua sắm &amp; phần khách sạn Kyoto trả lại Ngân. Tỉ giá tham chiếu <b>~165đ/¥</b> (dao động 161–168 tuỳ nguồn/thẻ) — đây là <b>ước tính</b>, mình chưa xác minh từng khoản tại chỗ. Ăn uống là biến số lớn nhất; nghiêng street food thì gần cận dưới.</p>
+  <div class="callout"><b>Đối chiếu (sanity check):</b> một bản kế hoạch nháp độc lập cho đúng nhóm 4 (lộ trình có thêm Hakone + ở ryokan/khách sạn) ước <b>ex-vé ¥138.000/người (bản tiết kiệm) → ¥193.000 (bản thoải mái)</b>, tức ~24–34 triệu. Plan hiện tại của bạn ex-vé ≈ 21 triệu/người (35–36tr − 14,4tr vé) ≈ <b>~¥127.000</b> — <b>thấp hơn cả mức “tiết kiệm” ~8%</b>, hợp lý vì bạn chọn Airbnb thay ryokan và bỏ Hakone. Nói cách khác: ngân sách đang <b>đặt đúng chỗ</b>, dư địa nằm ở ăn uống &amp; mua sắm. <span class="small">(Benchmark cho lộ trình khác nên chỉ mang tính tham chiếu.)</span></div>
+  <div class="callout"><b>Dùng thẻ:</b> khi quẹt thẻ nước ngoài, luôn chọn tính bằng <b>JPY</b> (đừng chọn “tính bằng VND/USD” — đó là DCC, tỉ giá xấu). Ưu tiên thẻ Mỹ miễn phí ngoại tệ cho các khoản bạn tự chi (tàu, ăn, mua sắm). Rút thêm tiền mặt ở ATM 7-Eleven nếu cần.</div>
+</section>
+
+<!-- MẸO -->
+<section id="meo" class="anchor">
+  <div class="sec-head"><span class="sec-num">08</span><h2>Mẹo dân bản địa &amp; cạm bẫy</h2></div>
+
+  <div class="warn"><b>Mua sắm miễn thuế — luật MỚI áp dụng đúng dịp bạn đi.</b> Từ <b>01/11/2026</b>, Nhật bỏ giảm-thuế-tại-quầy. Bạn <b>trả full giá gồm 10% thuế</b> khi mua, rồi <b>xin hoàn thuế ở sân bay Kansai</b> lúc về (trước khi ký gửi hành lý &amp; qua hải quan). Cần: hộ chiếu, <b>giữ toàn bộ hoá đơn</b>, giữ hàng còn nguyên để hải quan kiểm, mang ra khỏi Nhật trong 90 ngày. Điều kiện: nhập cảnh diện <b>khách du lịch ngắn hạn</b> (bạn dùng hộ chiếu Mỹ miễn visa 90 ngày là đủ — thẻ tạm trú VN không ảnh hưởng). Ngưỡng vẫn <b>¥5.000 chưa thuế / cửa hàng / ngày</b>. Gom mua ở department store lớn cho dễ, và chừa thêm thời gian ở KIX.</div>
+
+  <div class="grid2">
+    <div class="card">
+      <h3 class="blk">Vì sao KHÔNG mua JR Pass</h3>
+      <p class="small" style="margin-top:0">Lộ trình chỉ có <b>1 chặng Shinkansen dài</b> (Tokyo→Kyoto ~¥14.170). JR Pass 7 ngày ~¥50.000 (còn tăng giá từ 01/10/2026) và <b>không phủ tàu Nozomi</b> nếu không phụ thu. Mua vé lẻ + IC card cho tàu nội đô là rẻ hơn hẳn. Kết luận: bỏ qua JR Pass.</p>
+    </div>
+    <div class="card">
+      <h3 class="blk">Thời tiết &amp; ăn mặc</h3>
+      <ul class="clean">
+        <li>Ngày ~10–12°C, đêm ~2–4°C, khô &amp; nắng. Kyoto lạnh hơn chút.</li>
+        <li>Áo khoác ấm + lớp lót giữ nhiệt, khăn, găng cho buổi tối. Giày đi bộ êm.</li>
+        <li>Trong nhà/tàu bật sưởi rất nóng → mặc nhiều lớp để cởi bớt.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="blk">Ứng xử &amp; nhỏ mà quan trọng</h3>
+      <ul class="clean">
+        <li>Không vừa đi vừa ăn nơi công cộng; ăn tại chỗ mua.</li>
+        <li>Trên tàu giữ im lặng, không gọi điện. Không tip. Xếp hàng đúng vạch.</li>
+        <li>Thang cuốn: đứng bên trái ở Tokyo, <b>bên phải ở Osaka</b> (ngược nhau).</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="blk">Khung giờ &amp; cạm bẫy</h3>
+      <ul class="clean">
+        <li>Điểm hot (Fushimi Inari, Arashiyama, Senso-ji): đi <b>trước 9h</b> hoặc <b>sau 16h</b>.</li>
+        <li>Đặt trước theo suất: <b>Shibuya Sky, teamLab, USJ, Maruhana</b>.</li>
+        <li>Tránh chọn “thanh toán bằng VND/USD” khi quẹt thẻ (DCC).</li>
+        <li>Đền/chùa nhỏ &amp; quán cũ hay chỉ nhận <b>tiền mặt</b>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="warn"><b>Không lái xe ở Nhật với IDP hiện có.</b> Tấm “International Driving Permit” của bạn (loại hiệp hội quốc tế) <b>không được Nhật công nhận</b>. Lộ trình này không thuê xe nên không sao — nhưng đừng phát sinh ý định thuê ô tô/xe máy ở Nhật với giấy này.</div>
+</section>
+
+<!-- CHECKLIST -->
+<section id="checklist" class="anchor">
+  <div class="sec-head"><span class="sec-num">09</span><h2>Việc cần làm trước chuyến (đếm ngược)</h2></div>
+  <div class="card">
+    <h3 class="blk">Ngay bây giờ → còn ~12 tuần</h3>
+    <ul class="clean">
+      <li>Kiểm tra hộ chiếu Mỹ còn hạn tốt (hết 07/2033). Nhập cảnh Nhật miễn visa 90 ngày.</li>
+      <li>Chốt với Ngân: giờ gặp ở Kyoto, tiền khách sạn Kyoto chia lại.</li>
+      <li>Đặt sớm (bán theo suất, hết nhanh): <b>Shibuya Sky, teamLab</b>, USJ (nếu chọn), <b>bàn Maruhana</b>.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3 class="blk">Còn ~4–6 tuần</h3>
+    <ul class="clean">
+      <li>Mua <b>eSIM</b> cho 4 người (data Nhật) — cài sẵn, tới nơi bật là chạy.</li>
+      <li>Đặt <b>vé Shinkansen</b> Tokyo→Kyoto (Smart-EX) — ghế E bên phải; hoặc mua tại ga khi tới.</li>
+      <li>Cài <b>Suica/ICOCA</b> vào điện thoại (hoặc mua thẻ ở sân bay).</li>
+      <li>Xin host Airbnb (Tokyo, Osaka) hướng dẫn tự nhận phòng &amp; tốc độ wifi.</li>
+      <li>Đăng ký <b>Visit Japan Web</b> để khai nhập cảnh + hải quan online (quét QR nhanh).</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3 class="blk">Còn ~1 tuần → ngày đi</h3>
+    <ul class="clean">
+      <li>Làm <b>thủ tục online Vietnam Airlines</b> (mở trước 24h; đã có 2 kiện ký gửi/khách).</li>
+      <li>Tận dụng <b>Priority Pass</b> + fast track (thẻ VietinBank) ở Nội Bài.</li>
+      <li>Đổi ít <b>tiền mặt yên</b>; báo ngân hàng thẻ Mỹ sẽ dùng ở Nhật.</li>
+      <li>Đóng gói: áo ấm nhiều lớp, giày đi bộ, ổ cắm (Nhật chân dẹt type A, 100V).</li>
+      <li>Lưu offline: mã Airbnb (HMRN9XS5P8, HM8HBDW8S3), Agoda Kyoto (1753696635), mã vé <b>EINY6B</b>, SĐT host.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- THẺ KHẨN CẤP -->
+<section id="khancap" class="anchor">
+  <div class="sec-head"><span class="sec-num">10</span><h2>Thẻ khẩn cấp Nhật Bản</h2></div>
+  <p class="small">In ra hoặc chụp màn hình để trong ví — dùng được cả khi hết data. Số máy Nhật gọi <b>miễn phí</b> từ mọi điện thoại. Khi hoảng, cứ đưa màn hình này cho người Nhật xem.</p>
+  <button class="printbtn" onclick="window.print()">🖨️ In / lưu PDF thẻ này</button>
+
+  <div class="ecard">
+    <div class="eh"><span class="et">① Số khẩn cấp tại Nhật</span><span class="es">gọi miễn phí, 24/24</span></div>
+    <div class="eb">
+      <div class="erow"><div class="k">Cảnh sát</div><div class="v"><span class="num">110</span> — tai nạn, mất cắp, bị hại</div></div>
+      <div class="erow"><div class="k">Cứu hoả / Cấp cứu</div><div class="v"><span class="num">119</span> — bệnh nặng, thương tích, cháy (nói “kyū-kyū-sha” = xe cứu thương)</div></div>
+      <div class="erow"><div class="k">JNTO Visitor Hotline</div><div class="v"><span class="num">050-3816-2787</span> — 24/7, có <b>tiếng Anh</b>; hỗ trợ tai nạn/ốm/thiên tai &amp; chỉ dẫn chung</div></div>
+      <div class="erow"><div class="k">Tư vấn y tế (không khẩn)</div><div class="v"><span class="num">#7119</span> — tổng đài y tế Tokyo &amp; Osaka: có nên đi viện không, viện nào gần</div></div>
+    </div>
+  </div>
+
+  <div class="ecard">
+    <div class="eh"><span class="et">② Cơ quan Việt Nam (bảo hộ công dân)</span><span class="es">giữ passport Mỹ, nhưng đây là chỗ đỡ khi kẹt</span></div>
+    <div class="eb">
+      <div class="erow"><div class="k">ĐSQ VN · Tokyo</div><div class="v">50-11 Motoyoyogi-cho, Shibuya-ku, Tokyo 151-0062<br>Tel <b>(03) 3466-3311</b> · <b>Bảo hộ công dân 24/24: <span class="num">+81 80-3590-9136</span></b><br><span class="small">baohocongdan@vnembassy.jp · giờ hành chính T2–T6 9:00–12:00, 14:00–17:00</span></div></div>
+      <div class="erow"><div class="k">TLSQ VN · Osaka</div><div class="v">4-2-15 Ichinocho Higashi, Sakai-ku, Sakai 590-0952 <span class="small">(ở Sakai, nam Osaka — ~40’ từ Namba)</span><br>Tel <b>+81 72-221-6666</b> · <b>Bảo hộ công dân: <span class="num">+81 90-4769-6789</span></b><br><span class="small">baohocongdan.osaka@gmail.com</span></div></div>
+    </div>
+  </div>
+
+  <div class="ecard">
+    <div class="eh"><span class="et">③ Y tế nói tiếng Anh</span><span class="es">cấp cứu thì gọi 119 trước</span></div>
+    <div class="eb">
+      <div class="erow"><div class="k">Tokyo</div><div class="v"><b>St. Luke’s International Hospital</b> — 9-1 Akashi-cho, Chuo-ku · cấp cứu 24/7, quen bệnh nhân nước ngoài.</div></div>
+      <div class="erow"><div class="k">Osaka</div><div class="v"><b>Osaka University Hospital</b> — có phiên dịch cho ca cấp cứu. Khám nhẹ/lấy thuốc: <b>AMC Clinic (Umeda)</b>.</div></div>
+      <div class="erow"><div class="k">Nhà thuốc</div><div class="v">Tìm biển <b>薬局 (yakkyoku)</b> hoặc drug store (Matsukiyo, Sugi). Mang theo tên thuốc bạn hay dùng (viết sẵn).</div></div>
+    </div>
+  </div>
+
+  <div class="ecard">
+    <div class="eh"><span class="et">④ Vé máy bay &amp; chỗ ở</span><span class="es">khi lỡ chuyến / mất chỗ</span></div>
+    <div class="eb">
+      <div class="erow"><div class="k">Vietnam Airlines</div><div class="v">Mã <b>EINY6B</b> (Super Lite · <b>NONREF</b>). Tổng đài quốc tế 24/7 <b>+84 24 3832 0320</b> · Lotusmiles 1900 1800.<br><span class="small">Đổi ngày phí ~4,5tr/vé, không hoàn. Người đứng thẻ: Vân Anh. VN Airlines không có số riêng ở Nhật — dùng tổng đài này.</span></div></div>
+      <div class="erow"><div class="k">Chỗ ở</div><div class="v">Host Tokyo <b>Green +81 90-6136-0560</b> · Osaka <b>Afp +81 50-3613-3481</b> · Agoda Kyoto ID <b>1753696635</b> (Ngân). Sự cố phòng: nhắn host qua app Airbnb hoặc gọi hotline trong app.</div></div>
+      <div class="erow"><div class="k">Kẹt giữa chừng?</div><div class="v">Nhắn mình prompt <b>“Đổi kế hoạch giữa chừng”</b> — mình xếp lại lịch &amp; chỉ rõ chỗ nào huỷ/đổi.</div></div>
+    </div>
+  </div>
+
+  <div class="ecard">
+    <div class="eh"><span class="et">⑤ 10 câu tiếng Nhật cần nhất</span><span class="es">phiên âm đọc như tiếng Việt</span></div>
+    <div class="eb">
+      <div class="phrases">
+        <div class="p"><b>Cứu với!</b> <span>助けて!</span> <i>Ta-sư-kê-tê!</i></div>
+        <div class="p"><b>Gọi xe cứu thương giúp!</b> <span>救急車を呼んでください</span> <i>Kiu-kiu-sha o yon-đê ku-đa-sai</i></div>
+        <div class="p"><b>Gọi cảnh sát giúp!</b> <span>警察を呼んでください</span> <i>Kê-sa-tsư o yon-đê ku-đa-sai</i></div>
+        <div class="p"><b>Tôi thấy trong người không khoẻ</b> <span>具合が悪いです</span> <i>Gu-ai ga wa-ru-i đề-sư</i></div>
+        <div class="p"><b>Chỗ này đau</b> <span>ここが痛いです</span> <i>Kô-kô ga i-tai đề-sư</i></div>
+        <div class="p"><b>Bệnh viện ở đâu?</b> <span>病院はどこですか</span> <i>Biô-in wa đô-kô đề-sư ka</i></div>
+        <div class="p"><b>Có ai nói tiếng Anh không?</b> <span>英語を話せる人はいますか</span> <i>Ê-gô o ha-na-sê-ru hi-tô wa i-mas ka</i></div>
+        <div class="p"><b>Tôi bị lạc đường</b> <span>道に迷いました</span> <i>Mi-chi ni ma-yoi-ma-shi-ta</i></div>
+        <div class="p"><b>Cái này bao nhiêu tiền?</b> <span>いくらですか</span> <i>I-ku-ra đề-sư ka</i></div>
+        <div class="p"><b>Cảm ơn / Xin lỗi</b> <span>ありがとう / すみません</span> <i>A-ri-ga-tô / Su-mi-ma-sên</i></div>
+      </div>
+    </div>
+  </div>
+  <p class="small">Nguồn liên hệ đã tra &amp; xác minh 05/09/2026 (ĐSQ/TLSQ VN, JNTO, bệnh viện). Số cơ quan có thể đổi — khi cần cứ gọi <b>110/119</b> hoặc <b>JNTO 050-3816-2787</b> trước.</p>
+</section>
+
+<div class="foot">
+  Dashboard chuyến Nhật của nhóm · cập nhật 05/09/2026 · tiền tệ VNĐ, giờ GMT+7, ngày dd/mm/yyyy.<br>
+  Bổ sung 05/09: thẻ khẩn cấp (in được), mẹo gửi vali &amp; depachika, đài ngắm miễn phí, thắp đèn lá đỏ Kyoto, hàng bạch quả Meiji, đối chiếu ngân sách — chắt từ 2 bản kế hoạch nháp.<br>
+  Số liệu tàu/giá/tỉ giá là tham chiếu tại thời điểm tra cứu, có thể đổi — sẽ rà lại gần ngày đi. Chưa đặt/chi bất cứ khoản nào; mọi thứ chờ chữ “Chốt”.
+</div>
+
+</div>
+
+<script>
+  (function(){
+    var target = new Date(2026,10,30,8,35,0); // 30/11/2026 08:35
+    var now = new Date();
+    var days = Math.ceil((target - now)/(1000*60*60*24));
+    var el = document.getElementById('countdown');
+    if(el){ el.textContent = days > 0 ? days : 0; }
+  })();
+</script>
+</body>
+</html>
