@@ -19,24 +19,6 @@
     --serif:'Playfair Display',Georgia,'Times New Roman',serif;
     --sans:'Be Vietnam Pro',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
   }
-  @media(prefers-color-scheme:dark){
-    :root:not([data-theme="light"]){
-      color-scheme:dark;
-      --paper:#0F131C; --card:#171C29; --ink:#E8EBF3; --muted:#9AA3BC;
-      --line:#2A3245; --indigo:#8FA2EA; --amber:#E0A63E; --amber-soft:#332a19;
-      --red:#E27B7B; --red-soft:#39232A; --green:#63BE93; --stripe:#1C2230;
-      --c1:#3987e5; --c2:#d95926; --c3:#199e70; --c4:#c98500; --c5:#d55181;
-      --wx-cold:#24344d; --wx-mild:#2c3040; --wx-warm:#3c3320; --wx-ink:#E8EBF3;
-    }
-  }
-  :root[data-theme="dark"]{
-    color-scheme:dark;
-    --paper:#0F131C; --card:#171C29; --ink:#E8EBF3; --muted:#9AA3BC;
-    --line:#2A3245; --indigo:#8FA2EA; --amber:#E0A63E; --amber-soft:#332a19;
-    --red:#E27B7B; --red-soft:#39232A; --green:#63BE93; --stripe:#1C2230;
-    --c1:#3987e5; --c2:#d95926; --c3:#199e70; --c4:#c98500; --c5:#d55181;
-    --wx-cold:#24344d; --wx-mild:#2c3040; --wx-warm:#3c3320; --wx-ink:#E8EBF3;
-  }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.62;font-size:16px;-webkit-font-smoothing:antialiased;}
@@ -194,14 +176,24 @@
   @media(max-width:640px){.erow{grid-template-columns:1fr;gap:2px;}.phrases{grid-template-columns:1fr;}}
   .printbtn{display:inline-block;background:var(--ink);color:var(--card);border:none;border-radius:8px;padding:9px 16px;font-family:var(--sans);font-size:.9rem;font-weight:600;cursor:pointer;margin:2px 0 10px;}
   @media print{
+    @page{margin:14mm;}
     nav.top,.printbtn,.glow{display:none!important;}
-    body{background:#fff;font-size:12px;}
-    section:not(#khancap){display:none!important;}
-    header.hero{background:#fff!important;color:#000;padding:0 0 10px;}
-    .hero h1,.hero .kick,.hero .route{color:#000!important;}
+    html,body{background:#fff!important;color:#000!important;font-size:11pt;}
+    header.hero,.food-hero{background:#fff!important;color:#000!important;padding:0 0 10px!important;}
+    .hero h1,.hero .kick,.hero .route,.food-hero *{color:#000!important;}
     .stats{display:none;}
-    #khancap{padding-top:0;}
-    .ecard{page-break-inside:avoid;}
+    .card,.day,.eat,.rcell,.wxchip,.ecard,.callout,.warn{background:#fff!important;border:1px solid #999!important;box-shadow:none!important;}
+    tbody tr:nth-child(odd){background:#fff!important;}
+    table{border-collapse:collapse;}
+    th,td{border-bottom:1px solid #bbb!important;}
+    .tag.star{background:#fff!important;color:#000!important;border:1px solid #666!important;}
+    a{color:#000!important;text-decoration:none;}
+    h1,h2,h3,h4{color:#000!important;page-break-after:avoid;}
+    section,.day,.ecard,.eat,.card{page-break-inside:avoid;}
+    *{text-shadow:none!important;}
+    body.print-card section:not(#khancap){display:none!important;}
+    body.print-card header.hero{display:none!important;}
+    body.print-card #khancap{padding-top:0;}
   }
 </style>
 </head>
@@ -825,7 +817,7 @@
 <section id="khancap" class="anchor">
   <div class="sec-head"><span class="sec-num">11</span><h2>Thẻ khẩn cấp Nhật Bản</h2></div>
   <p class="small">In ra hoặc chụp màn hình để trong ví — dùng được cả khi hết data. Số máy Nhật gọi <b>miễn phí</b> từ mọi điện thoại. Khi hoảng, cứ đưa màn hình này cho người Nhật xem.</p>
-  <button class="printbtn" onclick="window.print()">🖨️ In / lưu PDF thẻ này</button>
+  <button class="printbtn" onclick="document.body.classList.add('print-card');window.print();">🖨️ In / lưu PDF thẻ này</button>
 
   <div class="ecard">
     <div class="eh"><span class="et">① Số khẩn cấp tại Nhật</span><span class="es">gọi miễn phí, 24/24</span></div>
@@ -899,6 +891,7 @@
     var el = document.getElementById('countdown');
     if(el){ el.textContent = days > 0 ? days : 0; }
   })();
+  window.addEventListener('afterprint',function(){document.body.classList.remove('print-card');});
 </script>
 </body>
 </html>
